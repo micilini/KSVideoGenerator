@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "KSVideoGenerator": {
+      "commandName": "Project",
+      "commandLineArgs": "--configFile C:\\Users\\sdanz\\Desktop\\config.json"
+    }
+  }
+}

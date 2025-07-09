@@ -1,0 +1,1471 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="dist\" />
+    <Folder Include="tools\linux-x64\chromium\" />
+    <Folder Include="tools\linux-x64\ffmpeg\" />
+    <Folder Include="tools\windows-x64\chromium\" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Content Include="tools\**\*">
+			<CopyToPublishDirectory>Always</CopyToPublishDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="config.json" />
+	  <None Remove="readme.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="config.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="readme.md">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+
+	<ItemGroup>
+    <PackageReference Include="System.Net.WebSockets.Client" Version="4.3.2" />
+    <PackageReference Include="System.Text.Json" Version="9.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="tools\linux-x64\chromium\chrome">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\chrome-wrapper">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\chrome_100_percent.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\chrome_200_percent.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\chrome_crashpad_handler">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\chrome_sandbox">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\icudtl.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\libEGL.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\libGLESv2.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\libvk_swiftshader.so">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\libvulkan.so.1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\af.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\af.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\am.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\am.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ar-XB.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ar-XB.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ar.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ar.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\bg.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\bg.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\bn.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\bn.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ca.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ca.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\cs.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\cs.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\da.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\da.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\de.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\de.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\el.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\el.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\en-GB.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\en-GB.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\en-US.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\en-US.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\en-XA.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\en-XA.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\es-419.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\es-419.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\es.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\es.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\et.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\et.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\fa.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\fa.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\fi.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\fi.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\fil.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\fil.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\fr.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\fr.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\gu.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\gu.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\he.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\he.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\hi.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\hi.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\hr.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\hr.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\hu.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\hu.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\id.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\id.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\it.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\it.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ja.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ja.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\kn.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\kn.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ko.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ko.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\lt.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\lt.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\lv.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\lv.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ml.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ml.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\mr.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\mr.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ms.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ms.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\nb.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\nb.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\nl.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\nl.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\pl.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\pl.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\pt-BR.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\pt-BR.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\pt-PT.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\pt-PT.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ro.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ro.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ru.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ru.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\sk.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\sk.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\sl.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\sl.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\sr.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\sr.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\sv.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\sv.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\sw.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\sw.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ta.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ta.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\te.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\te.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\th.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\th.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\tr.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\tr.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\uk.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\uk.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ur.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\ur.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\vi.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\vi.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\zh-CN.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\zh-CN.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\zh-TW.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\locales\zh-TW.pak.info">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\MEIPreload\manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\MEIPreload\preloaded_data.pb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\PrivacySandboxAttestationsPreloaded\manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\PrivacySandboxAttestationsPreloaded\privacy-sandbox-attestations.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\product_logo_48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\resources.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\resources\accessibility\reading_mode_gdocs_helper\content.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\resources\accessibility\reading_mode_gdocs_helper\gdocs_script.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\resources\accessibility\reading_mode_gdocs_helper_manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\resources\inspector_overlay\inspector_overlay_resources.grd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\resources\inspector_overlay\main.js">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\v8_context_snapshot.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\vk_swiftshader_icd.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\xdg-mime">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\chromium\xdg-settings">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\ffmpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\ffprobe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\GPLv3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\manpages\ffmpeg-all.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\manpages\ffmpeg-bitstream-filters.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\manpages\ffmpeg-codecs.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\manpages\ffmpeg-devices.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\manpages\ffmpeg-filters.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\manpages\ffmpeg-formats.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\manpages\ffmpeg-protocols.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\manpages\ffmpeg-resampler.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\manpages\ffmpeg-scaler.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\manpages\ffmpeg-utils.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\manpages\ffmpeg.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\manpages\ffprobe.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\000-PLEASE-README.TXT">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\model_V8a.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxall_libsvmnusvr_currentbest.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxall_libsvmnusvr_currentbest.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxall_vmafv1.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxall_vmafv1.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxall_vmafv2.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxall_vmafv2.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxall_vmafv3.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxall_vmafv3.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxall_vmafv3a.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxall_vmafv3a.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxall_vmafv4.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxall_vmafv4.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxtrain_libsvmnusvr_currentbest.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxtrain_libsvmnusvr_currentbest.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxtrain_norm_type_none.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxtrain_norm_type_none.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxtrain_norm_type_none.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxtrain_vmafv1.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxtrain_vmafv1.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxtrain_vmafv2.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxtrain_vmafv2.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxtrain_vmafv3.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxtrain_vmafv3.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxtrain_vmafv3a.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflxtrain_vmafv3a.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflx_v1.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflx_v1.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflx_v1.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflx_vmaff_rf_v1.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\nflx_vmaff_rf_v2.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\niqe_v0.1.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\vmaf_4k_v0.6.1rc.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\vmaf_4k_v0.6.1rc.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\vmaf_v0.6.0.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\vmaf_v0.6.0.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\vmaf_v0.6.0.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\other_models\vmaf_v0.6.1mfz.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0001">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0001.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0002">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0002.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0003">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0003.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0004">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0004.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0005">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0005.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0006">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0006.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0007">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0007.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0008">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0008.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0009">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0009.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0010">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0010.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0011">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0011.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0012">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0012.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0013">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0013.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0014">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0014.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0015">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0015.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0016">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0016.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0017">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0017.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0018">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0018.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0019">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.0019.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_rb_v0.6.2\vmaf_4k_rb_v0.6.2.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_4k_v0.6.1.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_b_v0.6.3.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_4k_v0.6.1.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0001">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0001.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0002">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0002.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0003">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0003.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0004">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0004.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0005">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0005.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0006">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0006.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0007">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0007.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0008">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0008.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0009">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0009.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0010">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0010.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0011">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0011.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0012">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0012.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0013">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0013.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0014">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0014.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0015">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0015.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0016">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0016.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0017">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0017.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0018">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0018.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0019">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0019.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0020">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.0020.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_b_v0.6.3\vmaf_float_b_v0.6.3.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_v0.6.1.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_v0.6.1.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_v0.6.1.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_v0.6.1neg.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_v0.6.1neg.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_float_v0.6.1neg.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0001">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0001.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0002">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0002.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0003">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0003.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0004">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0004.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0005">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0005.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0006">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0006.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0007">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0007.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0008">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0008.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0009">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0009.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0010">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0010.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0011">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0011.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0012">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0012.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0013">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0013.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0014">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0014.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0015">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0015.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0016">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0016.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0017">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0017.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0018">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0018.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0019">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.0019.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.2\vmaf_rb_v0.6.2.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0001">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0001.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0002">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0002.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0003">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0003.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0004">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0004.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0005">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0005.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0006">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0006.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0007">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0007.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0008">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0008.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0009">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0009.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0010">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0010.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0011">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0011.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0012">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0012.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0013">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0013.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0014">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0014.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0015">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0015.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0016">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0016.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0017">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0017.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0018">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0018.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0019">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0019.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0020">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.0020.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_rb_v0.6.3\vmaf_rb_v0.6.3.pkl.model">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_v0.6.1.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\model\vmaf_v0.6.1neg.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\qt-faststart">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\linux-x64\ffmpeg\readme.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\140.0.7276.0.manifest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\chrome.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\chrome.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\chrome_100_percent.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\chrome_200_percent.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\chrome_elf.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\chrome_proxy.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\chrome_pwa_launcher.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\chrome_wer.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\D3DCompiler_47.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\debug.log">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\dxcompiler.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\dxil.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\elevated_tracing_service.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\elevation_service.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\eventlog_provider.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\First Run">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\icudtl.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\interactive_ui_tests.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\IwaKeyDistribution\iwa-key-distribution.pb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\IwaKeyDistribution\manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\libEGL.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\libGLESv2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\af.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\am.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\ar-XB.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\ar.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\bg.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\bn.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\ca.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\cs.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\da.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\de.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\el.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\en-GB.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\en-US.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\en-XA.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\es-419.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\es.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\et.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\fa.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\fi.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\fil.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\fr.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\gu.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\he.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\hi.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\hr.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\hu.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\id.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\it.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\ja.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\kn.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\ko.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\lt.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\lv.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\ml.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\mr.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\ms.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\nb.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\nl.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\pl.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\pt-BR.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\pt-PT.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\ro.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\ru.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\sk.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\sl.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\sr.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\sv.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\sw.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\ta.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\te.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\th.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\tr.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\uk.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\ur.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\vi.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\zh-CN.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\locales\zh-TW.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\MEIPreload\manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\MEIPreload\preloaded_data.pb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\notification_helper.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\PrivacySandboxAttestationsPreloaded\manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\PrivacySandboxAttestationsPreloaded\privacy-sandbox-attestations.dat">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\resources.pak">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\setup.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\v8_context_snapshot.bin">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\vk_swiftshader.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\vk_swiftshader_icd.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\chromium\vulkan-1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\ffmpeg\ffmpeg.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\ffmpeg\ffplay.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="tools\windows-x64\ffmpeg\ffprobe.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
