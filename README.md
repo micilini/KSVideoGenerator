@@ -1,4 +1,4 @@
-﻿# KSVideoGenerator ![Build Status](https://img.shields.io/github/actions/workflow/status/micilini/KSVideoGenerator/ci.yml?branch=main) ![License](https://img.shields.io/github/license/micilini/KSVideoGenerator)
+﻿# KSVideoGenerator ![License](https://img.shields.io/github/license/micilini/KSVideoGenerator)
 
 ![CLI Screenshoot](./KSVideoGenerator-Picture.png)
 
@@ -10,6 +10,8 @@ KSVideoGenerator (Key System Video Generator) is a zero-dependency .NET CLI tool
 
 ⚡ **No external installs required** — Chromium and FFmpeg binaries are bundled.  
 🌐 **Cross-platform** — runs out of the box on Windows & Linux.
+
+If you want to Download the distribuition version of this library, just go to the [Releases page](https://github.com/micilini/KSVideoGenerator/releases/tag/Version0.0.1) :)
 
 ---
 
@@ -72,8 +74,7 @@ After that open ```KSVideoGenerator.sln``` with Visual Studio Community 2022.
 
 Go to the [Releases page](https://github.com/micilini/KSVideoGenerator/releases) and download:
 
-- `ToolsX64-Windows-KSVideoGenerator-0.0.1.zip`  
-- `ToolsX64-Linux-KSVideoGenerator-0.0.1.zip`  
+- `ToolsX64-Linux-Windows-KSVideoGenerator-0.0.1.zip`   
 
 Then extract each into your `tools/` folder:
 
@@ -194,7 +195,7 @@ This application comes with a ```config.json``` file that can be used to configu
 
 ## Usage
 
-After generating the executable for Windows or Linux, or downloading the project located inside the dist folder,
+After generating the executable for Windows or Linux, or downloading the project located inside [Releases page](https://github.com/micilini/KSVideoGenerator/releases).
 
 You have two options for running this project.
 
