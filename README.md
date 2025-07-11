@@ -178,7 +178,8 @@ This application comes with a ```config.json``` file that can be used to configu
   "width": 1920,
   "height": 1080,
   "chromiumDebugPort": 9222,
-  "chromiumArgs": "--headless --no-sandbox --disable-setuid-sandbox --disable-gpu --disable-dev-shm-usage --force-device-scale-factor=1 --disable-background-timer-throttling --disable-renderer-backgrounding --disable-backgrounding-occluded-windows --remote-debugging-address=127.0.0.1"
+  "chromiumArgs": "--headless --no-sandbox --disable-setuid-sandbox --disable-gpu --disable-dev-shm-usage --force-device-scale-factor=1 --disable-background-timer-throttling --disable-renderer-backgrounding --disable-backgrounding-occluded-windows --remote-debugging-address=127.0.0.1",
+  "soundTrack": "C:\\Users\\sdanz\\Desktop\\KSVideoGenerator\\test-sound.mp3"
 }
 ```
 
@@ -190,6 +191,7 @@ This application comes with a ```config.json``` file that can be used to configu
 | `width` / `height`  | Viewport dimensions                              |
 | `chromiumDebugPort` | DevTools port for headless Chromium              |
 | `chromiumArgs`      | Extra Chromium flags (see defaults above)        |
+| `soundTrack`        | Sound (.MP3) used in video                       |
 
 ---
 
@@ -215,7 +217,8 @@ KSVideoGenerator \
   --width 1280 \
   --height 720 \
   --chromiumDebugPort 9222 \
-  --chromiumArgs "--headless --no-sandbox --disable-dev-shm-usage"
+  --chromiumArgs "--headless --no-sandbox --disable-dev-shm-usage" \
+  --soundTrack "./audio.mp3"
 ```
 
 ### Example using NodeJS:
