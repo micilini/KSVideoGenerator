@@ -27,7 +27,7 @@ namespace KSVideoGenerator.Services
 
             // Title and Copy
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("KSVideoGenerator (0.0.1)");
+            Console.WriteLine("KSVideoGenerator (0.0.2)");
             Console.WriteLine("Developed by Micilini");
             Console.ResetColor();
             Console.WriteLine();
