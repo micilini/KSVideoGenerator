@@ -1,9 +1,10 @@
 {
-  "url": "https://example.com/",
+  "url": "http://localhost/Animations/one.html",
   "duration": 10.0,
   "fps": 30,
   "width": 1920,
   "height": 1080,
   "chromiumDebugPort": 9222,
-  "chromiumArgs": "--headless --no-sandbox --force-device-scale-factor=1 --disable-background-timer-throttling --disable-renderer-backgrounding --disable-backgrounding-occluded-windows --remote-debugging-address=127.0.0.1 "
+  "chromiumArgs": "--headless --no-sandbox --force-device-scale-factor=1 --disable-background-timer-throttling --disable-renderer-backgrounding --disable-backgrounding-occluded-windows --remote-debugging-address=127.0.0.1 ",
+  "soundTrack": "C:\\Users\\sdanz\\Desktop\\KSVideoGenerator\\test-sound.mp3"
 }

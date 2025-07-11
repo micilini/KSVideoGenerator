@@ -94,7 +94,7 @@ namespace KSVideoGenerator
             var ffmpegPath = Path.Combine(AppContext.BaseDirectory, ffmpegRel);
             var videoDir = Path.Combine(AppContext.BaseDirectory, "videos");
 
-            var ffmpegService = new FFMPEGManagerService(ffmpegPath, tempDir, videoDir);
+            var ffmpegService = new FFMPEGManagerService(ffmpegPath, tempDir, videoDir, flags[0].SoundTrack);
             var result = ffmpegService.BuildVideo(flags[0].Fps);
 
             if (!result.Success)

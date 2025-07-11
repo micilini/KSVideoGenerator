@@ -14,8 +14,8 @@ namespace KSVideoGenerator.Services
     public class FlagManageService
     {
         private readonly string[] _args;
-        private const int DefaultChromiumDebugPort = 9222;
-        private const string DefaultChromiumArgs =
+        private int DefaultChromiumDebugPort = 9222;
+        private string DefaultChromiumArgs =
             "--headless " +
             "--no-sandbox --force-device-scale-factor=1 " +
             "--disable-background-timer-throttling --disable-renderer-backgrounding --disable-backgrounding-occluded-windows " +
@@ -100,7 +100,8 @@ namespace KSVideoGenerator.Services
                         cfg.Width,
                         cfg.Height,
                         cfg.ChromiumDebugPort,
-                        cfg.ChromiumArgs
+                        cfg.ChromiumArgs,
+                        cfg.SoundTrack
                     )
                 };
 
@@ -112,6 +113,7 @@ namespace KSVideoGenerator.Services
             string url = null;
             double duration = 0;
             int fps = 0, width = 0, height = 0;
+            string soundTrack = null;
 
             for (int i = 0; i < _args.Length; i++)
             {
@@ -163,6 +165,35 @@ namespace KSVideoGenerator.Services
                         }
                         break;
 
+                    case "--chromiumDebugPort":
+                        if (i + 1 >= _args.Length || !int.TryParse(_args[++i], out DefaultChromiumDebugPort))
+                        {
+                            ErrorMessage = "Flag --chromiumDebugPort requires an integer value (optional).";
+                            flags = null;
+                            return false;
+                        }
+                        break;
+
+                    case "--chromiumArgs":
+                        if (i + 1 >= _args.Length)
+                        {
+                            ErrorMessage = "Flag --chromiumArgs requires a value (optional).";
+                            flags = null;
+                            return false;
+                        }
+                        DefaultChromiumArgs = _args[++i];
+                        break;
+
+                    case "--soundtrack":
+                        if (i + 1 >= _args.Length)
+                        {
+                            ErrorMessage = "Flag --soundtrack requires a value (optional).";
+                            flags = null;
+                            return false;
+                        }
+                        soundTrack = _args[++i];
+                        break;
+
                     default:
                         ErrorMessage = $"Unknown flag '{_args[i]}'.";
                         flags = null;
@@ -192,7 +223,8 @@ namespace KSVideoGenerator.Services
                     width,
                     height,
                     DefaultChromiumDebugPort,
-                    DefaultChromiumArgs
+                    DefaultChromiumArgs,
+                    soundTrack
                 )
             };
             Console.WriteLine($"[INFO] Flags received: {flags[0]}");
@@ -209,6 +241,7 @@ namespace KSVideoGenerator.Services
             public int Height { get; set; }
             public int ChromiumDebugPort { get; set; }
             public string ChromiumArgs { get; set; }
+            public string SoundTrack { get; set; }
         }
     }
 }

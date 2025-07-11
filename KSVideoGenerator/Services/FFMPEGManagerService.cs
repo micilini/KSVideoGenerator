@@ -13,18 +13,77 @@ namespace KSVideoGenerator.Services
         private readonly string _tempDir;
         private readonly string _videoDir;
         private readonly string _workingDir;
+        private readonly string _soundTrack;
 
         /// <summary>
         /// </summary>
         /// <param name="ffmpegPath">Full path to the ffmpeg executable.</param>
         /// <param name="tempDir">Directory where frame*.png files live.</param>
         /// <param name="videoDir">Directory to write the final .mp4 into.</param>
-        public FFMPEGManagerService(string ffmpegPath, string tempDir, string videoDir)
+        public FFMPEGManagerService(string ffmpegPath, string tempDir, string videoDir, string soundTrack)
         {
             _ffmpegPath = ffmpegPath ?? throw new ArgumentNullException(nameof(ffmpegPath));
             _tempDir = tempDir ?? throw new ArgumentNullException(nameof(tempDir));
             _videoDir = videoDir ?? throw new ArgumentNullException(nameof(videoDir));
+            _soundTrack = soundTrack; // can be null or empty
             _workingDir = AppContext.BaseDirectory;
+        }
+
+        /// <summary>
+        /// Validates and returns a usable .mp3 soundtrack path, or null if none.
+        /// </summary>
+        private string ResolveSoundTrack()
+        {
+            if (string.IsNullOrWhiteSpace(_soundTrack))
+            {
+                Console.WriteLine("[WARN] No soundTrack provided, proceeding without audio.");
+                return null;
+            }
+
+            string path = _soundTrack;
+            if (!Path.IsPathRooted(path))
+            {
+                path = Path.Combine(_workingDir, path);
+            }
+
+            if (!File.Exists(path))
+            {
+                Console.WriteLine($"[WARN] soundTrack not found at '{path}', proceeding without audio.");
+                return null;
+            }
+
+            if (!string.Equals(Path.GetExtension(path), ".mp3", StringComparison.OrdinalIgnoreCase))
+            {
+                Console.WriteLine($"[WARN] soundTrack is not an MP3 file ('{path}'), proceeding without audio.");
+                return null;
+            }
+
+            // Probe with FFmpeg to verify validity
+            var probeArgs = $"-v error -i \"{path}\" -f null -";
+            var probePsi = new ProcessStartInfo(_ffmpegPath, probeArgs)
+            {
+                CreateNoWindow = true,
+                UseShellExecute = false,
+                RedirectStandardError = true
+            };
+
+            using var probeProc = Process.Start(probePsi);
+            if (probeProc == null)
+            {
+                Console.WriteLine("[WARN] Could not start FFmpeg to probe soundTrack, proceeding without audio.");
+                return null;
+            }
+
+            var probeError = probeProc.StandardError.ReadToEnd();
+            probeProc.WaitForExit();
+
+            if (probeProc.ExitCode != 0)
+            {
+                Console.WriteLine($"[WARN] soundTrack '{path}' is not a valid MP3 ({probeError.Trim()}), proceeding without audio.");
+                return null;
+            }
+
+            return path;
         }
 
         /// <summary>
@@ -49,19 +108,30 @@ namespace KSVideoGenerator.Services
             var timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
             var outputFile = Path.Combine(_videoDir, $"output_{timestamp}.mp4");
 
-            // 3) Build FFmpeg arguments
-            //    Using absolute path pattern for safety:
+            // 3) Validate optional soundtrack
+            var audioPath = ResolveSoundTrack();
+
+            // 4) Build FFmpeg arguments
             var inputPattern = Path.Combine(_tempDir, "frame%04d.png");
-            var ffArgs = $"-y " +                     // overwrite output
-                         $"-framerate {fps} " +      // input FPS
-                         $"-start_number 1 " +       // first frame index
-                         $"-loglevel error " +       // only show errors
-                         $"-i \"{inputPattern}\" " + // input pattern
-                         $"-vf \"pad=ceil(iw/2)*2:ceil(ih/2)*2\" " + // ensure even dimensions
-                         $"-c:v libx264 -pix_fmt yuv420p " +        // codec + pixel format
-                         $"\"{outputFile}\"";        // output file
+            var ffArgs = $"-y -framerate {fps} -start_number 1 -loglevel error " +
+                         $"-i \"{inputPattern}\" ";
+
+            if (audioPath != null)
+            {
+                ffArgs += $"-i \"{audioPath}\" ";
+            }
+
+            ffArgs += $"-vf \"pad=ceil(iw/2)*2:ceil(ih/2)*2\" -c:v libx264 -pix_fmt yuv420p ";
+
+            if (audioPath != null)
+            {
+                ffArgs += "-c:a aac -shortest ";
+            }
+
+            ffArgs += $"\"{outputFile}\"";
 
             Console.WriteLine("[INFO] FFMPEG Initialized");
+            //Console.WriteLine("[INFO] Running FFmpeg with args: " + ffArgs);
 
             // 4) Configure and launch FFmpeg
             var psi = new ProcessStartInfo(_ffmpegPath, ffArgs)

@@ -8,7 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="dist\" />
     <Folder Include="tools\linux-x64\chromium\" />
     <Folder Include="tools\linux-x64\ffmpeg\" />
     <Folder Include="tools\windows-x64\chromium\" />
@@ -21,15 +20,18 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="dist\**" />
+	  <EmbeddedResource Remove="dist\**" />
+	  <None Remove="dist\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="config.json" />
 	  <None Remove="readme.md" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <Content Include="config.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="readme.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </Content>
 	</ItemGroup>

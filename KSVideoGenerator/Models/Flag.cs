@@ -14,6 +14,7 @@ namespace KSVideoGenerator.Models
         public int Height { get; }
         public int ChromiumDebugPort { get; }
         public string ChromiumArgs { get; }
+        public string SoundTrack { get; }
 
         public Flag(
             string url,
@@ -22,7 +23,8 @@ namespace KSVideoGenerator.Models
             int width,
             int height,
             int chromiumDebugPort,
-            string chromiumArgs)
+            string chromiumArgs,
+            string soundTrack)
         {
             Url = url;
             Duration = duration;
@@ -31,11 +33,13 @@ namespace KSVideoGenerator.Models
             Height = height;
             ChromiumDebugPort = chromiumDebugPort;
             ChromiumArgs = chromiumArgs;
+            SoundTrack = soundTrack;
         }
 
         public override string ToString() =>
             $"Url=\"{Url}\", Duration={Duration}s, Fps={Fps}, " +
             $"Width={Width}px, Height={Height}px, " +
+            $"SoundTrack={SoundTrack}, " + 
             $"ChromiumDebugPort={ChromiumDebugPort}, " +
             $"ChromiumArgs=\"{ChromiumArgs}\"";
     }
